@@ -26,11 +26,18 @@
 
 <script>
 
+
 export default {
   name: 'Home-page',
   data() {
     return {
-      
+
+    }
+  },
+  
+  computed: {
+    products() {
+      return this.$state.products;
     }
   },
 
