@@ -12,7 +12,7 @@
   export default {
     
     created() {
-      this.$store.dispatch('loadproducs');
+      this.$store.dispatch('loadProducts');
     }
 
   }
