@@ -37,28 +37,25 @@
 </template>
 
 <script>
-export default {
-  name: 'Home-page',
-  
-  computed: {
-    products() {
-      return this.$store.state.products;
-    },
-    productsInBag() {
-      return this.$store.state.productsInBag;
-    }
-  },
+  import { mapState } from 'vuex';
 
-  methods: {
-   addToBag(product) {
-      product.quantity = 1;
-      this.$store.dispatch('addToBag', product);
-   },
-    isInBag(product) {
-      return this.productsInBag.find(item => item.id == product.id)
+  export default {
+    name: 'Home-page',
+    
+    computed: mapState([
+        'products', 'productsInBag'
+      ]),
+
+    methods: {
+    addToBag(product) {
+        product.quantity = 1;
+        this.$store.dispatch('addToBag', product);
+    },
+      isInBag(product) {
+        return this.productsInBag.find(item => item.id == product.id)
+      }
     }
   }
-}
 </script>
 
 <style lang="scss">
